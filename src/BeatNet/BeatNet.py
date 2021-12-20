@@ -200,7 +200,10 @@ class BeatNet:
             feats = torch.from_numpy(feats)
             feats = feats.unsqueeze(0)
             preds = self.model(feats)[0]  # extracting the activations by passing the feature through the NN
+            print(preds.shape)
+            print(preds)
             preds = self.model.final_pred(preds)
+            print(preds)
             preds = preds.detach().numpy()
             preds = np.transpose(preds[:2, :])
         return preds
