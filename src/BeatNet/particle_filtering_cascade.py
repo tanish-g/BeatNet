@@ -116,7 +116,7 @@ class particle_filter_cascade:
     MIN_BEAT_PER_BAR = 2
     MAX_BEAT_PER_BAR = 4
     OFFSET = 0 # The point of time after which the inference model starts to work. Can be zero!
-    IG_THRESHOLD = 0.4  # Information Gate threshold
+    IG_THRESHOLD = 0.4  # Information Gate threshold #How to choose IG_THRESHOLD
 
     def __init__(self, beats_per_bar=[], particle_size=PARTICLE_SIZE, down_particle_size=DOWN_PARTICLE_SIZE,
                  min_bpm=MIN_BPM, max_bpm=MAX_BPM, num_tempi=NUM_TEMPI, min_beats_per_bar=MIN_BEAT_PER_BAR,
