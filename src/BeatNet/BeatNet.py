@@ -128,6 +128,7 @@ class BeatNet:
             else:
                 raise RuntimeError('An audio object or file directory is required for the online usage!')
             if self.inference_model == "PF":   # Particle filtering inference (causal)
+                print('.....__running_particle_inferene__.....')
                 output = self.estimator.process(preds)  # Using particle filtering online inference to infer beat/downbeats
                 return output
             elif self.inference_model == "DBN":    # Dynamic bayesian Network Inference (non-causal)
