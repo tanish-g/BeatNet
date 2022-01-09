@@ -196,6 +196,7 @@ class particle_filter_cascade:
             self.subplot2.set_xlabel("ϕ_b: Phase of the frame within the beat interval", size=20)
             self.subplot2.set_ylabel("ϕ'_b: Tempo", size=20)
             self.subplot2.set_title("Beat particle states", size=20)
+            plt.savefig('beat_particles.png', bbox_inches='tight',pad_inches = 0)
             self.beat_particles_swarm = self.subplot2.axvline(x=position_beats) # setting up beat particle average to display
             
         if 'downbeat_particles' in self.plot:    
@@ -214,6 +215,7 @@ class particle_filter_cascade:
             self.subplot3.set_xlabel("ϕ_d: Phase of the beat within the bar interval", size=20)
             self.subplot3.set_ylabel("ϕ'_d: Meter", size=20)
             self.subplot3.set_title("Downbeat particle states", size=20)
+            plt.savefig('downbeat_particles.png', bbox_inches='tight',pad_inches = 0)
             self.down_particles_swarm = self.subplot3.axvline(x=position_downs) # setting up downbeat particle average to display
         
             #plt.show(block=False)
@@ -320,6 +322,7 @@ class particle_filter_cascade:
             subplot1.set_ylim([0,1])
             subplot1.plot(self.both_activations[:,0], color='black', label='Beat Activations') # plotting beat activations
             subplot1.plot(self.both_activations[:,1] , color='purple', label='Downbeat Activations') # plotting downbeat activations
+            plt.savefig('activations.png', bbox_inches='tight',pad_inches = 0)
             plt.show()
         elif self.mode == 'stream' or self.mode == 'realtime':
             self.beats_activation_show = np.roll(self.beats_activation_show,1)
