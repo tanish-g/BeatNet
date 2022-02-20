@@ -60,6 +60,8 @@ class BDA(nn.Module):  #beat_downbeat_activation
         x = data
         x = torch.reshape(x, (-1, self.dim_in))
         x = x.unsqueeze(0).transpose(0, 1)
+        print('input_shape')
+        print(x.shape)
         x = F.max_pool1d(F.relu(self.conv1(x)), 2)
         x = x.view(-1, self.num_flat_features(x))
         x = self.linear0(x)
