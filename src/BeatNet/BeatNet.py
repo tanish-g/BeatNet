@@ -198,6 +198,7 @@ class BeatNet:
             else:
             	audio = audio_path
             feats = self.proc.process_audio(audio).T
+            print('input_feats_shape_T',feats.shape)
             feats = torch.from_numpy(feats)
             feats = feats.unsqueeze(0)
             preds = self.model(feats)[0]  # extracting the activations by passing the feature through the NN and [0] for making shape independent of batchsize
